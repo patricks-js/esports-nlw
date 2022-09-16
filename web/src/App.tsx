@@ -7,6 +7,8 @@ import logo from "./assets/logo.svg";
 import { Game } from "./components/Game";
 import { Button } from "./components/Button";
 
+import { GAMES } from "./utils/games";
+
 export const App = () => {
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
@@ -20,12 +22,14 @@ export const App = () => {
       </h1>
 
       <div className="grid grid-cols-6 gap-6 mt-20">
-        <Game name="Apex" game_img="apex" />
-        <Game name="CSGO" game_img="csgo" />
-        <Game name="League of Legends" game_img="lol" />
-        <Game name="Fortnite" game_img="fornite" />
-        <Game name="Warcraft" game_img="warcraft" />
-        <Game name="Dota 2" game_img="dota2" />
+        {GAMES.map((game) => (
+          <Game
+            key={game.id}
+            name={game.name}
+            ad={game.ads}
+            game_img={game.image}
+          />
+        ))}
       </div>
 
       <div className="pt-1 bg-nlw-gradient self-stretch rounded-lg overflow-hidden mt-8">
